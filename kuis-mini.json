@@ -1,0 +1,22 @@
+[
+  {
+    "pertanyaan": "Apa nama ibukota Indonesia?",
+    "pilihan": ["Surabaya", "Jakarta", "Bandung", "Medan"],
+    "jawaban": "Jakarta"
+  },
+  {
+    "pertanyaan": "Hewan yang hidup di dua alam disebut?",
+    "pilihan": ["Mamalia", "Reptil", "Amfibi", "Aves"],
+    "jawaban": "Amfibi"
+  },
+  {
+    "pertanyaan": "Berapa hasil dari 25 x 4?",
+    "pilihan": ["100", "75", "50", "125"],
+    "jawaban": "100"
+  },
+  {
+    "pertanyaan": "Apa satuan gaya dalam fisika?",
+    "pilihan": ["Joule", "Watt", "Newton", "Kelvin"],
+    "jawaban": "Newton"
+  }
+]

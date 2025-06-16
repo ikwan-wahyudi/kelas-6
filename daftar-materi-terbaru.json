@@ -1,0 +1,30 @@
+[
+    {
+        "judul": "Sistem Pencernaan Manusia",
+        "tanggal": "2025-06-12",
+        "link": "materi/pencernaan.html",
+        "gambar": "img/images-pencernaan.jpg",
+        "deskripsi": "Mempelajari bagian-bagian sistem pencernaan dan fungsinya dalam tubuh manusia."
+    },
+    {
+        "judul": "Perkembangan Teknologi",
+        "tanggal": "2025-06-10",
+        "link": "materi/teknologi.html",
+        "gambar": "img/images-teknologi.png",
+        "deskripsi": "Mengenal berbagai kemajuan teknologi dari masa ke masa."
+    },
+    {
+        "judul": "Pengantar Pemrograman",
+        "tanggal": "2025-06-08",
+        "link": "materi/pemrograman.html",
+        "gambar": "img/images-pemrograman.jpg",
+        "deskripsi": "Dasar-dasar pemrograman dan logika komputasi."
+    },
+    {
+        "judul": "Ekosistem Laut",
+        "tanggal": "2025-06-05",
+        "link": "materi/ekosistem-laut.html",
+        "gambar": "img/images-ekosistem-laut.jpg",
+        "deskripsi": "Memahami pentingnya ekosistem laut bagi kehidupan di bumi."
+    }
+]

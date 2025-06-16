@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beranda | Media Belajar Kelas 6 SD Negeri Bubulan II</title>
+  <link rel="icon" type="image/png" href="img/icon-sd-negeri-bubulan-ii.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Warna kustom jika dibutuhkan */
+    .bg-header {
+      background-color: #C6E7FF;
+    }
+
+    .bg-footer {
+      background-color: #FFDDAE;
+    }
+
+    .border-accent {
+      border-color: #D4F6FF;
+    }
+  </style>
+  <style>
+    #sliderTestimoni::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <style>
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #E0E7FF;
+    }
+  </style>
+
+</head>
+
+<body class="bg-white text-gray-800">
+  <!-- Loader Fullscreen -->
+  <div id="page-loader" class="fixed inset-0 bg-white z-[100] flex flex-col items-center justify-center">
+    <img src="img/sd-negeri-bubulan-ii.png" alt="Logo SD" class="h-24 w-24 animate-pulse mb-4" />
+    <p class="text-gray-600 text-sm">Memuat halaman...</p>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-header sticky top-0 z-50 shadow-md border-b-4 border-accent">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-y-4">
+      <!-- Logo dan Judul -->
+      <a href="index.html">
+        <div class="flex items-center space-x-3">
+          <img src="img/sd-negeri-bubulan-ii.png" alt="Logo" class="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0" />
+          <div class="flex flex-col">
+            <h1 class="text-xl lg:pl-2 sm:text-xl font-bold">Media Belajar Kelas 6</h1>
+            <p class="text-base lg:pl-2 sm:text-base text-gray-800">SD Negeri Bubulan II</p>
+          </div>
+        </div>
+      </a>
+      <!-- Tombol Menu (Mobile & Medium) -->
+      <div class="flex right-4 top-4 items-center lg:hidden">
+        <button id="menuToggle" class="text-gray-700 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- NAVIGASI -->
+      <nav id="navMenu" class="hidden w-full lg:flex lg:items-center lg:w-auto lg:space-x-6">
+        <a href="#" class="block py-1 px-4 text-gray-700 hover:text-blue-700">Beranda</a>
+        <a href="#" class="block py-1 px-4 text-gray-700 hover:text-blue-700">Materi</a>
+        <a href="#" class="block py-1 px-4 text-gray-700 hover:text-blue-700">Cek Nilai</a>
+        <a href="#" class="block py-1 px-4 text-gray-700 hover:text-blue-700">Profil</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-20 text-center px-4 py-8 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('https://catatanpenasains.wordpress.com/wp-content/uploads/2025/06/desain-tanpa-judul-2.png');">
+    <img src="img/sd-negeri-bubulan-ii.png" alt="Logo Besar" class="mx-auto h-24 sm:h-28 md:h-32 lg:h-36 mb-4" />
+    <h1 class="text-2xl sm:text-2xl font-bold text-gray-800">Selamat Datang di Media Belajar Berbasis Web</h1>
+    <p class="text-base sm:text-lg text-gray-600 lg:mt-0 sm:mt-4 mb-3">Untuk Kelas VI - SD Negeri Bubulan II</p>
+    <a href="materi.html" target="_self"
+      class="inline-block mt-2 bg-[#C6E7FF] hover:bg-[#D4F6FF] text-gray-600 font-medium py-2 px-5 rounded-full text-sm sm:text-base">Mulai
+      Belajar</a>
+    <p class="pb-2"></p>
+  </section>
+
+  <main class="max-w-7xl mx-auto lg:px-6 md:px-2 sm:px-2 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- KIRI (2/3) -->
+      <div class="lg:col-span-2 space-y-6">
+        <!-- Sambutan -->
+        <section class="bg-white pt-0 pr-6 pl-6 pb-0">
+          <h2 class="text-xl font-bold mb-4 text-blue-800">Sambutan</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+            <!-- Kolom Kiri: Foto dan Identitas -->
+            <div class="flex flex-col items-center">
+              <img src="img/ikwan-wahyudi-1.jpg" alt="Foto Pengembang"
+                class="w-40 h-60 object-cover rounded-md shadow-md mb-4">
+              <div class="text-center">
+                <p class="text-base font-semibold text-gray-800">Ikwan Wahyudi, S.Pd., M.Pd.</p>
+                <p class="text-sm text-gray-600">Guru Kelas VI - SD Negeri Bubulan II</p>
+              </div>
+            </div>
+
+            <!-- Kolom Kanan: Teks Sambutan -->
+            <div class="md:col-span-2 lg:text-sm md:text-base sm:text-base">
+              <p class="text-gray-700 italic mb-2 text-justify">
+                Assalamualaikum warahmatullahi wabarakatuh</p>
+              <p class="text-gray-700 mb-4 text-justify">
+                Puji syukur ke hadirat Allah SWT, karena atas rahmat dan karunia-Nya, website media pembelajaran ini
+                dapat kami hadirkan sebagai sarana belajar siswa kelas VI SD Negeri Bubulan II. Di era
+                digital seperti saat ini, kebutuhan akan pembelajaran yang fleksibel, kreatif, dan menyenangkan menjadi
+                sangat penting. Media ini dikembangkan sebagai bentuk inovasi untuk mendukung siswa belajar dengan cara
+                yang lebih bermakna.
+              </p>
+              <p class="text-gray-700 text-justify">
+                Kami berharap kehadiran media ini dapat menjadi teman belajar yang menyenangkan sekaligus memotivasi
+                siswa untuk lebih aktif mengeksplorasi pengetahuan. Melalui media ini,
+                siswa dapat mengakses materi, latihan soal, hingga mengecek hasil belajarnya secara mandiri. Semoga
+                inisiatif ini dapat memberikan kontribusi positif bagi dunia pendidikan, khususnya di lingkungan SD
+                Negeri Bubulan II. Terima kasih atas dukungan semua pihak yang turut serta dalam pengembangan media ini.
+              </p>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Fitur Interaktif -->
+        <section class="bg-white lg:pt-6 sm:pt-0 pr-6 pl-6 lg:pb-6 sm:pb-0">
+          <h3 class="text-lg font-semibold text-blue-800 mb-4">Fitur Media Belajar:</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Materi -->
+            <a href="materi.html"
+              class="group bg-white border border-blue-200 rounded-xl shadow-md p-6 flex flex-col items-center transition transform hover:bg-blue-50 hover:scale-105 hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-200">
+              <img src="img/ikon-fitur-materi.png" alt="Materi"
+                class="w-20 h-20 mb-4 transition-transform group-hover:scale-110" />
+              <h4 class="text-lg font-semibold text-blue-800 mb-2">Materi</h4>
+              <p class="text-gray-700 text-center text-sm">Baca dan pelajari materi pelajaran secara interaktif, lengkap
+                dengan gambar dan penjelasan.</p>
+            </a>
+            <!-- Latihan Soal -->
+            <a href="latihan.html"
+              class="group bg-white border border-blue-200 rounded-xl shadow-md p-6 flex flex-col items-center transition transform hover:bg-blue-50 hover:scale-105 hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-200">
+              <img src="img/ikon-fitur-latihan-soal.png" alt="Latihan Soal"
+                class="w-20 h-20 mb-4 transition-transform group-hover:scale-110" />
+              <h4 class="text-lg font-semibold text-blue-800 mb-2">Latihan Soal</h4>
+              <p class="text-gray-700 text-center text-sm">Kerjakan soal latihan untuk menguji pemahamanmu dan dapatkan
+                skor secara otomatis.</p>
+            </a>
+            <!-- Cek Nilai -->
+            <a href="cek-nilai.html"
+              class="group bg-white border border-blue-200 rounded-xl shadow-md p-6 flex flex-col items-center transition transform hover:bg-blue-50 hover:scale-105 hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-200">
+              <img src="img/ikon-fitur-cek-nilai.png" alt="Cek Nilai"
+                class="w-20 h-20 mb-4 transition-transform group-hover:scale-110" />
+              <h4 class="text-lg font-semibold text-blue-800 mb-2">Cek Nilai</h4>
+              <p class="text-gray-700 text-center text-sm">Lihat hasil belajar dan nilai dari latihan soal yang telah
+                kamu kerjakan.</p>
+            </a>
+          </div>
+        </section>
+
+        <!--Materi Terbaru-->
+        <section class="bg-white pt-0 pr-6 pl-6 lg:pb-6 sm:pb-0">
+          <h3 class="text-lg font-semibold text-blue-800 mb-4">Materi Terbaru</h3>
+          <div id="materiWrapper">
+            <div id="loader" class="flex justify-center py-12">
+              <svg class="animate-spin h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+              </svg>
+            </div>
+            <div id="daftarMateri" class="grid sm:grid-cols-2 gap-6">
+              <!-- Kartu materi akan dimuat di sini -->
+            </div>
+        </section>
+      </div>
+
+      <!-- KANAN (1/3) -->
+      <div class="space-y-6">
+        <!-- Daftar Mata Pelajaran -->
+        <section class="bg-white pt-0 pr-6 pl-6 pb-0">
+          <h3 class="text-lg font-semibold text-blue-800 mb-2">Daftar Mata Pelajaran</h3>
+          <div class="grid grid-cols-2 lg:grid-cols-1 gap-2">
+            <!-- Mapel 1 -->
+            <a href="mapel-pendidikan-pancasila-kelas6.html"
+              class="group flex items-center p-2 rounded-lg transition transform hover:bg-blue-50 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-150 shadow-sm">
+              <img src="img/ikon-ppc.png" alt="Pendidikan Pancasila" class="w-10 h-10 mr-3" />
+              <span class="text-gray-800 font-medium">Pendidikan Pancasila</span>
+            </a>
+            <!-- Mapel 2 -->
+            <a href="mapel-bahasa-indonesia-kelas6.html"
+              class="group flex items-center p-2 rounded-lg transition transform hover:bg-blue-50 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-150 shadow-sm">
+              <img src="img/ikon-bin.png" alt="Bahasa Indonesia" class="w-10 h-10 mr-3" />
+              <span class="text-gray-800 font-medium">Bahasa Indonesia</span>
+            </a>
+            <!-- Mapel 3 -->
+            <a href="mapel-matematika-kelas6.html"
+              class="group flex items-center p-2 rounded-lg transition transform hover:bg-blue-50 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-150 shadow-sm">
+              <img src="img/ikon-mat.png" alt="Matematika" class="w-10 h-10 mr-3" />
+              <span class="text-gray-800 font-medium">Matematika</span>
+            </a>
+            <!-- Mapel 4 -->
+            <a href="mapel-ipas-kelas6.html"
+              class="group flex items-center p-2 rounded-lg transition transform hover:bg-blue-50 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-150 shadow-sm">
+              <img src="img/ikon-ipas.png" alt="IPAS" class="w-10 h-10 mr-3" />
+              <span class="text-gray-800 font-medium">IPAS</span>
+            </a>
+            <!-- Mapel 5 -->
+            <a href="mapel-seni-rupa-kelas6.html"
+              class="group flex items-center p-2 rounded-lg transition transform hover:bg-blue-50 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-150 shadow-sm">
+              <img src="img/ikon-seni.png" alt="Seni Rupa" class="w-10 h-10 mr-3" />
+              <span class="text-gray-800 font-medium">Seni Rupa</span>
+            </a>
+            <!-- Mapel 6 -->
+            <a href="mapel-bahasa-inggris-kelas6.html"
+              class="group flex items-center p-2 rounded-lg transition transform hover:bg-blue-50 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-150 shadow-sm">
+              <img src="img/ikon-big.png" alt="Bahasa Inggris" class="w-10 h-10 mr-3" />
+              <span class="text-gray-800 font-medium">Bahasa Inggris</span>
+            </a>
+            <!-- Mapel 7 -->
+            <a href="mapel-bahasa-jawa-kelas6.html"
+              class="group flex items-center p-2 rounded-lg transition transform hover:bg-blue-50 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-150 shadow-sm">
+              <img src="img/ikon-bjw.png" alt="Bahasa Jawa" class="w-10 h-10 mr-3" />
+              <span class="text-gray-800 font-medium">Bahasa Jawa</span>
+            </a>
+            <!-- Mapel 8 -->
+            <a href="mapel-literasi-digital-kelas6.html"
+              class="group flex items-center p-2 rounded-lg transition transform hover:bg-blue-50 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300 duration-150 shadow-sm">
+              <img src="img/ikon-litdig.png" alt="Literasi Digital" class="w-10 h-10 mr-3" />
+              <span class="text-gray-800 font-medium">Literasi Digital</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Kalender Kegiatan -->
+        <section class="bg-white pt-0 pr-6 pl-6 pb-4">
+          <h3 class="text-lg font-semibold text-blue-800 mb-4">Kalender Kegiatan</h3>
+          <div id="kalenderList" class="space-y-4 relative">
+            <!-- Kegiatan akan dimuat lewat JavaScript -->
+          </div>
+        </section>
+
+        <!-- Testimoni Siswa -->
+        <section class="bg-white pt-0 pr-6 pl-6 pb-0">
+          <h3 class="text-lg font-semibold text-blue-800 mb-2">Testimoni Siswa</h3>
+          <div class="relative">
+            <!-- Kontainer Slider -->
+            <div id="sliderTestimoni" class="overflow-hidden relative">
+              <div id="testimoniWrapper" class="flex transition-all duration-500 ease-in-out w-full">
+                <!-- Kartu testimoni akan diisi lewat JavaScript -->
+              </div>
+              <!-- Tombol Navigasi -->
+              <button id="prevTestimoni" aria-label="Sebelumnya"
+                class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white rounded-full p-1 hover:bg-blue-300 focus:outline-none z-10">
+                &#8592;
+              </button>
+              <button id="nextTestimoni" aria-label="Berikutnya"
+                class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white rounded-full p-1 hover:bg-blue-300 focus:outline-none z-10">
+                &#8594;
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-footer text-gray-800 py-8">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="flex flex-wrap justify-center items-center gap-6 mb-6">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg/640px-Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg.png"
+          alt="Logo Kemdikbud" class="h-12 w-auto" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Logo_Kabupaten_Bojonegoro.png"
+          alt="Logo Bojonegoro" class="h-12 w-auto" />
+        <img src="https://catatanpenasains.wordpress.com/wp-content/uploads/2025/06/sd-negeri-bubulan-ii-3.png"
+          alt="Logo Sekolah" class="h-12 w-auto" />
+      </div>
+      <p class="text-gray-700 text-sm md:text-base">Jl. Dukuh Tlotok, Desa Bubulan, Kecamatan Bubulan, Kabupaten
+        Bojonegoro</p>
+      <p class="text-gray-700 text-sm md:text-base">E-mail: ikwan.wahyudi37@guru.sd.belajar.id</p>
+      <div class="flex justify-center gap-4 mt-4">
+        <a href="https://www.instagram.com/sdnbubulan2/" target="_self" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"
+            class="h-6" />
+        </a>
+        <a href="https://www.tiktok.com/@sdnbubulan2" target="_self" aria-label="TikTok">
+          <img src="https://i.pinimg.com/originals/e4/15/d6/e415d6bd27900cc066d0b8b23a7f1055.png" alt="TikTok"
+            class="h-6" />
+        </a>
+        <a href="https://www.facebook.com/p/SDN-Bubulan-2-100067912305197/" target="_self" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" class="h-6" />
+        </a>
+      </div>
+      <hr class="my-4 border-gray-600" />
+      <p class="text-sm text-gray-600">Copyright © 2025. All rights reserved. Developed by: Ikwan Wahyudi, S.Pd., M.Pd.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JS untuk Memastikan Halaman Dimuat Selesai -->
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('page-loader');
+      loader.classList.add('opacity-0', 'pointer-events-none', 'transition-opacity', 'duration-500');
+      setTimeout(() => loader.remove(), 600);
+    });
+  </script>
+
+  <!-- JS untuk Toggle Menu -->
+  <script>
+    const toggleButton = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    toggleButton.addEventListener("click", () => {
+      navMenu.classList.toggle("hidden");
+    });
+  </script>
+
+  <!-- JS untuk Memuat Materi Terbaru -->
+  <script>
+    fetch('daftar-materi-terbaru.json')
+      .then(response => response.json())
+      .then(data => {
+        // Sembunyikan loader, tampilkan konten
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('daftarMateri').classList.remove('hidden');
+
+        data.sort((a, b) => new Date(b.tanggal) - new Date(a.tanggal));
+        const terbaru = data.slice(0, 2);
+        const container = document.getElementById('daftarMateri');
+
+        terbaru.forEach(materi => {
+          const card = document.createElement('a');
+          card.href = materi.link;
+          card.className = `
+          block rounded-xl overflow-hidden shadow hover:shadow-lg transition transform hover:-translate-y-1 hover:bg-blue-50 bg-white group
+        `;
+
+          card.innerHTML = `
+          <img src="${materi.gambar}" alt="Gambar Materi" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-md font-semibold text-blue-800 group-hover:text-blue-900 mb-1">${materi.judul}</h3>
+            <p class="text-sm text-gray-500 mb-2">${materi.tanggal}</p>
+            <p class="text-sm text-gray-700">${materi.deskripsi}</p>
+          </div>
+        `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => {
+        document.getElementById('loader').innerHTML = `<p class="text-red-600">Gagal memuat data materi.</p>`;
+        console.error("Gagal memuat materi:", error);
+      });
+  </script>
+
+  <!-- JS untuk Kalender Kegiatan -->
+  <script>
+    fetch('kalender-kegiatan.json')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById("kalenderList");
+
+        // Sort berdasarkan tanggal naik
+        data.sort((a, b) => new Date(a.tanggal) - new Date(b.tanggal));
+
+        // Ambil 3 kegiatan terdekat saja
+        const agendaTerdekat = data.slice(0, 3);
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        agendaTerdekat.forEach(item => {
+          const tanggal = new Date(item.tanggal);
+          tanggal.setHours(0, 0, 0, 0);
+
+          const isToday = tanggal.getTime() === today.getTime();
+
+          const options = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
+          const tanggalFormatted = tanggal.toLocaleDateString('id-ID', options);
+
+          const div = document.createElement('div');
+          div.className = `relative pl-6 pr-2 py-3 border-l-4 ${isToday ? 'border-yellow-400 bg-yellow-50' : 'border-blue-200 bg-blue-50'
+            } rounded-md shadow-sm`;
+
+          div.innerHTML = `
+          <div class="absolute left-[-10px] top-4 bg-white border-2 ${isToday ? 'border-yellow-400' : 'border-blue-400'
+            } rounded-full w-4 h-4"></div>
+          <p class="text-sm text-gray-500">${tanggalFormatted}</p>
+          <p class="text-gray-800 text-sm font-medium">${item.kegiatan}</p>
+          ${isToday
+              ? '<span class="inline-block text-xs mt-1 text-yellow-700 font-semibold">📌 Hari Ini</span>'
+              : ''
+            }
+        `;
+
+          list.appendChild(div);
+        });
+      })
+      .catch(err => {
+        document.getElementById("kalenderList").innerHTML = `<p class='text-red-600 text-sm'>Gagal memuat kalender kegiatan.</p>`;
+        console.error("Gagal fetch kalender:", err);
+      });
+  </script>
+
+  <!-- JS untuk Testimoni Siswa -->
+  <script>
+    let currentSlide = 0;
+    let testimoniData = [];
+
+    function showSlide(index) {
+      const wrapper = document.getElementById("testimoniWrapper");
+      const total = testimoniData.length;
+      if (index >= total) currentSlide = 0;
+      else if (index < 0) currentSlide = total - 1;
+      else currentSlide = index;
+
+      wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Ambil data dari JSON
+    fetch('testimoni-siswa.json')
+      .then(res => res.json())
+      .then(data => {
+        testimoniData = data;
+        const wrapper = document.getElementById("testimoniWrapper");
+        // Isi kartu testimoni
+        testimoniData.forEach(item => {
+          const slide = document.createElement("div");
+          slide.className = "w-full flex-none p-4";
+
+          slide.innerHTML = `
+          <div class="flex flex-col items-center text-center p-4 rounded-xl">
+            <img src="${item.foto}" alt="${item.nama}" class="w-24 h-24 rounded-full object-cover mb-3">
+            <p class="text-sm text-gray-700 italic mb-2">"${item.isi}"</p>
+            <p class="text-sm font-semibold text-blue-800">${item.nama}</p>
+          </div>
+        `;
+          wrapper.appendChild(slide);
+        });
+
+        showSlide(currentSlide);
+      });
+
+    // Navigasi manual
+    document.getElementById("prevTestimoni").addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+    });
+
+    document.getElementById("nextTestimoni").addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+    });
+
+    // Auto slider tiap 5 detik
+    setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, 5000);
+  </script>
+
+  <!-- Popup Tantangan Hari Ini -->
+  <div id="tantangan-popup"
+    class="fixed bottom-6 right-6 bg-white shadow-xl border border-blue-200 rounded-xl w-80 z-50 overflow-hidden hidden">
+    <div class="bg-blue-100 text-blue-800 px-4 py-2 font-semibold text-sm flex justify-between items-center">
+      💡 Tantangan Hari Ini!
+      <button id="tutupTantangan" class="text-blue-800 hover:text-red-500 font-bold text-lg leading-none">×</button>
+    </div>
+    <div class="p-4 space-y-2 text-sm text-gray-800" id="konten-tantangan">
+      <!-- Soal akan dimuat di sini -->
+    </div>
+  </div>
+
+  <script>
+    function getSoalAcak(data) {
+      const index = Math.floor(Math.random() * data.length);
+      return data[index];
+    }
+
+    fetch('kuis-mini.json')
+      .then(res => res.json())
+      .then(data => {
+        const soal = getSoalAcak(data);
+
+        const popup = document.getElementById("tantangan-popup");
+        const konten = document.getElementById("konten-tantangan");
+
+        // Tampilkan popup
+        popup.classList.remove("hidden");
+
+        // Isi konten soal
+        let html = `<p class="font-medium">${soal.pertanyaan}</p>`;
+        soal.pilihan.forEach(pil => {
+          html += `
+          <button class="jawaban bg-gray-100 hover:bg-blue-100 rounded px-3 py-1 w-full text-left border text-gray-800 mb-1"
+            data-jawaban="${pil}">
+            ${pil}
+          </button>
+        `;
+        });
+        konten.innerHTML = html;
+
+        // Event tombol jawab
+        document.querySelectorAll('.jawaban').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const jawaban = btn.dataset.jawaban;
+            if (jawaban === soal.jawaban) {
+              btn.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+              btn.textContent += " ✅ Benar!";
+            } else {
+              btn.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
+              btn.textContent += " ❌ Salah!";
+            }
+
+            // Disable semua tombol
+            document.querySelectorAll('.jawaban').forEach(b => b.disabled = true);
+
+            // Sembunyikan popup otomatis setelah feedback tampil
+            setTimeout(() => {
+              popup.classList.add('hidden');
+            }, 2000);
+          });
+        });
+
+        // Tombol tutup manual
+        document.getElementById("tutupTantangan").addEventListener("click", () => {
+          popup.classList.add("hidden");
+        });
+      });
+  </script>
+
+</body>
+
+</html>
