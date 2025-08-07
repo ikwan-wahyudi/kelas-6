@@ -92,6 +92,7 @@
         let currentGrades = [];
         let currentFilter = "all";
         let currentSort = "desc";
+        let scoreChartInstance = null;
 
         const subjectIcons = {
             "Pendidikan Pancasila": "🇮🇩",
@@ -186,11 +187,33 @@
             });
 
             document.getElementById("scoreCards").innerHTML = content;
-            new Chart(document.getElementById("scoreChart"), {
+            if (scoreChartInstance) {
+                scoreChartInstance.destroy(); // Hapus grafik lama
+            }
+
+            const ctx = document.getElementById("scoreChart").getContext("2d");
+
+            scoreChartInstance = new Chart(ctx, {
                 type: 'bar',
-                data: { labels: labels, datasets: [{ label: 'Nilai per Mata Pelajaran', data: scores, backgroundColor: scores.map(score => score >= 70 ? '#4caf50' : '#f44336') }] },
-                options: { responsive: true, scales: { y: { beginAtZero: true, max: 100 } } }
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Nilai per Mata Pelajaran',
+                        data: scores,
+                        backgroundColor: scores.map(score => score >= 70 ? '#4caf50' : '#f44336')
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
             });
+
         }
 
         function logout() {
@@ -203,6 +226,11 @@
             document.getElementById("summary").innerText = "";
             const canvas = document.getElementById("scoreChart");
             if (canvas && canvas.getContext) canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+            if (scoreChartInstance) {
+                scoreChartInstance.destroy();
+                scoreChartInstance = null;
+            }
+
         }
 
         function formatTanggalIndonesiaLengkap(tanggal) {
