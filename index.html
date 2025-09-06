@@ -74,10 +74,19 @@
 
             <div class="flex flex-col gap-2 mt-6">
                 <button onclick="window.print()"
-                    class="bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-semibold">Cetak
-                    Nilai</button>
-                <button onclick="logout()"
-                    class="bg-red-600 hover:bg-red-700 text-white py-2 rounded-md font-semibold">Kembali</button>
+                    class="bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-semibold">
+                    Cetak Nilai
+                </button>
+
+                <!-- Tombol baru -->
+                <button onclick="goToNotes()"
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-md font-semibold">
+                    📒 Lihat Catatan Perkembangan
+                </button>
+
+                <button onclick="logout()" class="bg-red-600 hover:bg-red-700 text-white py-2 rounded-md font-semibold">
+                    Kembali
+                </button>
             </div>
         </div>
 
@@ -215,6 +224,14 @@
             });
 
         }
+
+        function goToNotes() {
+            const nis = document.getElementById("nis").value.trim();
+            const name = document.getElementById("name").value.trim();
+            // arahkan ke halaman catatan dengan parameter NIS & nama
+            window.location.href = `catatan.html?nis=${encodeURIComponent(nis)}&name=${encodeURIComponent(name)}`;
+        }
+
 
         function logout() {
             document.getElementById("result").classList.add("hidden");
