@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catatan Perkembangan Siswa - SDN Bubulan II</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-slate-100 to-slate-200 min-h-screen py-6">
+    <div class="max-w-5xl mx-auto bg-white/90 p-6 rounded-xl shadow-xl">
+
+        <!-- Header -->
+        <header class="flex items-center gap-4 border-b-4 border-blue-600 pb-4 mb-6">
+            <img src="sd-negeri-bubulan-ii.png" alt="Logo Sekolah" class="w-16 h-16" />
+            <div>
+                <h2 class="text-xl font-bold text-blue-700">SD Negeri Bubulan II</h2>
+                <p class="text-sm">Dukuh Tlotok, Desa Bubulan, Kecamatan Bubulan, Kabupaten Bojonegoro, Kode Pos 62172
+                </p>
+            </div>
+        </header>
+
+        <!-- Judul -->
+        <h2 id="studentName" class="text-xl font-bold text-blue-800 mb-6 text-center"></h2>
+
+        <!-- Filter -->
+        <div class="flex gap-4 mb-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Filter Waktu</label>
+                <select id="noteFilter" onchange="renderNotes()" class="p-2 border border-gray-300 rounded-md text-sm">
+                    <option value="all">Semua</option>
+                    <option value="week">Mingguan</option>
+                    <option value="month">Bulanan</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Tabel Catatan -->
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden text-sm">
+                <thead class="bg-blue-600 text-white">
+                    <tr>
+                        <th class="px-4 py-2 text-left">Tanggal</th>
+                        <th class="px-4 py-2 text-left">Aspek</th>
+                        <th class="px-4 py-2 text-left">Berita/Uraian</th>
+                        <th class="px-4 py-2 text-left">Tindak Lanjut</th>
+                    </tr>
+                </thead>
+                <tbody id="studentNotes" class="divide-y divide-gray-200">
+                    <!-- Data catatan akan masuk di sini -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Navigasi Bawah -->
+        <div class="flex flex-col gap-2 mt-8">
+            <button onclick="goBackToScores()"
+                class="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md font-semibold">
+                ⬅️ Kembali ke Nilai
+            </button>
+            <button onclick="window.print()"
+                class="bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-semibold">
+                🖨️ Cetak Catatan Perkembangan
+            </button>
+            <button onclick="logout()" class="bg-red-600 hover:bg-red-700 text-white py-2 rounded-md font-semibold">
+                🚪 Logout
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-10 text-center text-sm text-gray-600">
+            <hr class="my-4 border-gray-300">
+            <p>Website ini dikembangkan oleh <strong>Ikwan Wahyudi, S.Pd., M.Pd.</strong></p>
+        </footer>
+    </div>
+
+    <script>
+        let studentNotes = {};
+
+        // Ambil parameter dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nis = urlParams.get("nis");
+        const name = urlParams.get("name");
+
+        document.getElementById("studentName").innerText = `📒 Catatan Perkembangan: ${name}`;
+
+        // Ambil data dari Google Apps Script Catatan
+        fetch("https://script.google.com/macros/s/AKfycbz1c_5gFddEp0u-WSBuxI81Sst1mGLFDCUccFMAfkc_wEmKMikA8GsbZcNtvel-1OFa/exec")
+            .then(response => response.json())
+            .then(data => {
+                studentNotes = data.notes;
+                renderNotes();
+            });
+        function formatTanggal(tanggalStr) {
+            const tanggal = new Date(tanggalStr);
+            const bulan = [
+                "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+            ];
+            return `${tanggal.getDate()} ${bulan[tanggal.getMonth()]} ${tanggal.getFullYear()}`;
+        }
+
+        function renderNotes() {
+            const tbody = document.getElementById("studentNotes");
+
+            if (!studentNotes[nis]) {
+                tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-3 text-center text-gray-500">Belum ada catatan perkembangan.</td></tr>`;
+                return;
+            }
+
+            const filter = document.getElementById("noteFilter").value;
+            const allNotes = studentNotes[nis];
+            const now = new Date();
+            let filteredNotes = allNotes;
+
+            if (filter === "week") {
+                const weekAgo = new Date(); weekAgo.setDate(now.getDate() - 7);
+                filteredNotes = allNotes.filter(n => new Date(n.date) >= weekAgo);
+            } else if (filter === "month") {
+                const monthAgo = new Date(); monthAgo.setMonth(now.getMonth() - 1);
+                filteredNotes = allNotes.filter(n => new Date(n.date) >= monthAgo);
+            }
+
+            if (filteredNotes.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-3 text-center text-gray-500">Tidak ada catatan pada periode ini.</td></tr>`;
+                return;
+            }
+
+            const rows = filteredNotes.map(n => `
+        <tr>
+          <td class="px-4 py-2">${formatTanggal(n.date)}</td>
+          <td class="px-4 py-2">${n.aspect}</td>
+          <td class="px-4 py-2">${n.note}</td>
+          <td class="px-4 py-2">${n.followup}</td>
+        </tr>
+      `).join("");
+
+            tbody.innerHTML = rows;
+        }
+
+        function goBackToScores() {
+            // kembali ke index.html, tetap bawa data NIS & nama biar auto-login
+            window.location.href = `index.html?nis=${encodeURIComponent(nis)}&name=${encodeURIComponent(name)}`;
+        }
+
+        function logout() {
+            window.location.href = "index.html"; // kembali ke halaman login utama
+        }
+    </script>
+</body>
+
+</html>
